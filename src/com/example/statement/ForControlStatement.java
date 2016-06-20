@@ -1,5 +1,6 @@
 package com.example.statement;
 
+import com.example.customClass.Class;
 import com.example.main.CustomCollection;
 import com.example.visitor.Visitor;
 
@@ -8,14 +9,14 @@ import com.example.visitor.Visitor;
  */
 public class ForControlStatement implements Statement, NewVariableDeclaration {
 
-    public ForControlStatement(String type, String variable, CustomCollection Elements)
+    public ForControlStatement(Class type, String variable, CustomCollection Elements)
     {
         this.variableType = type;
         this.variableId = variable;
         this.Elements = Elements;
     }
 
-    public String getVariableType()
+    public Class getVariableType()
     {
         return variableType;
     }
@@ -32,7 +33,7 @@ public class ForControlStatement implements Statement, NewVariableDeclaration {
 
 
 
-    private String variableType;
+    private Class variableType;
     private String variableId;
     private CustomCollection Elements;
     public void visit(Visitor visitor) throws Exception { visitor.visit(this); }

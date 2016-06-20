@@ -54,33 +54,33 @@ public class CheckScopes implements Visitor {
 
     @Override
     public void visit(ClassField a) throws Exception{
-        if (!Objects.equals(a.getType(), "Int"))
+        if (!Objects.equals(a.getType().name, "Int"))
         {
-            if (!information.classExist(a.getType()))
+            if (!information.classExist(a.getType().name))
             {
-                throw new Exception("Type " + a.getType() + " not found");
+                throw new Exception("Type " + a.getType().name + " not found");
             }
         }
     }
 
     @Override
     public void visit(InterfaceField a) throws Exception {
-        if (!Objects.equals(a.getType(), "Int"))
+        if (!Objects.equals(a.getType().name, "Int"))
         {
-            if (!information.classExist(a.getType()))
+            if (!information.classExist(a.getType().name))
             {
-                throw new Exception("Type " + a.getType() + " not found");
+                throw new Exception("Type " + a.getType().name + " not found");
             }
         }
 
     }
 
     public void visit(ClassMethod a) throws Exception {
-        if (!Objects.equals(a.getType(), "Int"))
+        if (!Objects.equals(a.getType().name, "Int"))
         {
-            if (!information.classExist(a.getType()))
+            if (!information.classExist(a.getType().name))
             {
-                throw new Exception("Type " + a.getType() + " not found");
+                throw new Exception("Type " + a.getType().name + " not found");
             }
         }
         a.getMethodBody().visit(this);
@@ -94,9 +94,9 @@ public class CheckScopes implements Visitor {
     }
 
     public void visit(VariableStatement a) throws Exception {
-        if (!Objects.equals(a.getVariableType(), "Int"))
+        if (!Objects.equals(a.getVariableType().name, "Int"))
         {
-            if (!information.classExist(a.getVariableType()))
+            if (!information.classExist(a.getVariableType().name))
             {
                 throw new Exception("Type " + a.getVariableType() + " not found");
             }

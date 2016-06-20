@@ -16,7 +16,7 @@ public class Program {
     {
         program.add(newClass);
 
-        HashMap<Pair<String, Member>, String> map = new HashMap<>();
+        HashMap<Pair<String, Member>, Class> map = new HashMap<>();
         for(ClassField field: newClass.fields) {
             map.put(new Pair(field.name, Member.FIELD), field.type);
         }

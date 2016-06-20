@@ -12,12 +12,12 @@ import java.util.List;
  * Created by ksenya on 18.06.16.
  */
 public class ClassMethod extends Method {
-    public ClassMethod(List<Modifier> modifier, String name, String type) {
+    public ClassMethod(List<Modifier> modifier, String name, Class type) {
 
         super(modifier, name, type);
     }
 
-    public ClassMethod(Modifier modifier, String name, String type) {
+    public ClassMethod(Modifier modifier, String name, Class type) {
 
         super(modifier, name, type);
     }
@@ -36,7 +36,7 @@ public class ClassMethod extends Method {
         this.methodBody.addStatement(methodBody);
     }
 
-    public String getType() {
+    public Class getType() {
 
         return type;
     }

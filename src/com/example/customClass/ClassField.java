@@ -13,27 +13,27 @@ import java.util.List;
 
 public class ClassField extends Field {
 
-    public ClassField(List<Modifier> modifier, String name, String type) {
+    public ClassField(List<Modifier> modifier, String name, Class type) {
 
         super(modifier, name, type);
     }
 
-    public ClassField(Modifier modifier, String name, String type) {
+    public ClassField(Modifier modifier, String name, Class type) {
         super(modifier, name, type);
     }
 
-    public ClassField(List<Modifier> modifier, String name, String type, List<Parameter> parameters) {
+    public ClassField(List<Modifier> modifier, String name, Class type, List<Parameter> parameters) {
 
         super(modifier, name, type);
         this.parameters = parameters;
     }
 
-    public ClassField(Modifier modifier, String name, String type, Parameter parameter) {
+    public ClassField(Modifier modifier, String name, Class type, Parameter parameter) {
         super(modifier, name, type);
         this.parameters.add(parameter);
     }
 
-    public String getType() {
+    public Class getType() {
 
         return type;
     }
