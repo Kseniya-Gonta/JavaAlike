@@ -3,7 +3,7 @@ package com.example.customClass;
 
 
 import com.example.classOrInterface.ClassOrInterface;
-import com.example.main.CustomModifier;
+import com.example.main.Modifier;
 import com.example.main.Information;
 import com.example.visitor.Visitor;
 
@@ -14,9 +14,9 @@ import java.util.List;
 
 public class Class extends ClassOrInterface {
 
-    public Class(CustomModifier modifier, String name, String parent) {
+    public Class(Modifier modifier, String name, String parent) {
 
-        super(new ArrayList<CustomModifier>(), name, parent);
+        super(new ArrayList<Modifier>(), name, parent);
     }
 
     public void visit(Visitor visitor, Information information) {
@@ -55,6 +55,10 @@ public class Class extends ClassOrInterface {
         this.fields.add(field);
     }
 
+    public List<Modifier> getModifiers()
+    {
+        return modifier;
+    }
 
     public List<ClassField> fields = new ArrayList<>();
     public List<ClassMethod> methods = new ArrayList<>();

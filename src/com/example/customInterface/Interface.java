@@ -1,8 +1,7 @@
 package com.example.customInterface;
 
 import com.example.classOrInterface.ClassOrInterface;
-import com.example.customClass.ClassField;
-import com.example.main.CustomModifier;
+import com.example.main.Modifier;
 import com.example.main.Information;
 import com.example.visitor.Visitor;
 
@@ -13,7 +12,7 @@ import java.util.List;
  */
 
 public class Interface extends ClassOrInterface {
-    public Interface(List<CustomModifier> modifier, String name, String parent) {
+    public Interface(List<Modifier> modifier, String name, String parent) {
         super(modifier, name, parent);
     }
 

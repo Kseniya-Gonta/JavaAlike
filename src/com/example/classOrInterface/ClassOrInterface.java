@@ -1,6 +1,6 @@
 package com.example.classOrInterface;
 
-import com.example.main.CustomModifier;
+import com.example.main.Modifier;
 import com.example.main.Information;
 import com.example.visitor.Visitor;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public  abstract  class ClassOrInterface {
-    public ClassOrInterface(List<CustomModifier> modifier, String name, String parent)
+    public ClassOrInterface(List<Modifier> modifier, String name, String parent)
     {
         this.parent = parent;
         this.name = name;
@@ -21,7 +21,7 @@ public  abstract  class ClassOrInterface {
 
     public String parent;
     public String name;
-    public List<CustomModifier> modifier;
+    public List<Modifier> modifier;
 
     public abstract void visit(Visitor visitor, Information information);
 }

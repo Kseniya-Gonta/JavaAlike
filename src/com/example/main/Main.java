@@ -21,27 +21,27 @@ public class Main {
         //b.addStatement(new AssignStatement("y", new IntLiteral(10)));
         //b.addStatement((new AssignStatement("y",new OrExpr(new Variable("x"), new Variable("y")))));
 
-        Class a = new Class(CustomModifier.Public, "MyClass", "parent");
-        a.addMethod(new ClassMethod(CustomModifier.Public, "MyMethod", "Int"));
+        Class a = new Class(Modifier.PUBLIC, "MyClass", "parent");
+        a.addMethod(new ClassMethod(Modifier.PUBLIC, "MyMethod", "Int"));
         //a.methods.get(0).addMethodBody(new ReturnStatement(new IntLiteral(10)));
         a.methods.get(0).addMethodBody(new VariableStatement("x", new IntLiteral(6), "Int"));
         a.methods.get(0).addMethodBody(new VariableStatement("z", new IntLiteral(6), "Int"));
         //a.methods.get(0).addMethodBody(new AssignStatement("z", new Variable("z")));
 
-        Class second = new Class(CustomModifier.Public, "SecondClass", "parent");
-        second.addMethod(new ClassMethod(CustomModifier.Public, "SecondMethod", "Int"));
-        second.addMethod(new ClassMethod(CustomModifier.Public, "ThirdMethod", "Int"));
+        Class second = new Class(Modifier.PUBLIC, "SecondClass", "parent");
+        second.addMethod(new ClassMethod(Modifier.PUBLIC, "SecondMethod", "Int"));
+        second.addMethod(new ClassMethod(Modifier.PUBLIC, "ThirdMethod", "Int"));
         a.methods.get(0).addMethodBody(new ReturnStatement(new IntLiteral(10)));
         second.methods.get(0).addMethodBody(new VariableStatement("second", new IntLiteral(6), "MyClass"));
         second.methods.get(1).addMethodBody(b);
 
-        Class third = new Class(CustomModifier.Public, "A", "");
-        third.addField(new ClassField(CustomModifier.Public, "c", "Int"));
-        third.addField(new ClassField(CustomModifier.Public, "b", "B"));
+        Class third = new Class(Modifier.PUBLIC, "A", "");
+        third.addField(new ClassField(Modifier.PUBLIC, "c", "Int"));
+        third.addField(new ClassField(Modifier.PUBLIC, "b", "B"));
 
 
-        Class fourth = new Class(CustomModifier.Public, "B", "");
-        third.addField(new ClassField(CustomModifier.Public, "a", "A"));
+        Class fourth = new Class(Modifier.PUBLIC, "B", "");
+        third.addField(new ClassField(Modifier.PUBLIC, "a", "A"));
 
         Program newprogram = new Program();
         newprogram.addClass(a);

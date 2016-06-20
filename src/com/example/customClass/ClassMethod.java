@@ -1,7 +1,7 @@
 package com.example.customClass;
 
 import com.example.classOrInterface.Method;
-import com.example.main.CustomModifier;
+import com.example.main.Modifier;
 import com.example.visitor.Visitor;
 import com.example.statement.BlockStatement;
 import com.example.statement.Statement;
@@ -12,12 +12,12 @@ import java.util.List;
  * Created by ksenya on 18.06.16.
  */
 public class ClassMethod extends Method {
-    public ClassMethod(List<CustomModifier> modifier, String name, String type) {
+    public ClassMethod(List<Modifier> modifier, String name, String type) {
 
         super(modifier, name, type);
     }
 
-    public ClassMethod(CustomModifier modifier, String name, String type) {
+    public ClassMethod(Modifier modifier, String name, String type) {
 
         super(modifier, name, type);
     }
@@ -39,6 +39,11 @@ public class ClassMethod extends Method {
     public String getType() {
 
         return type;
+    }
+
+    public List<Modifier> getModifiers()
+    {
+        return modifier;
     }
 
     private BlockStatement methodBody = new BlockStatement();

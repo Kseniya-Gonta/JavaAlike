@@ -1,7 +1,7 @@
 package com.example.customClass;
 
 import com.example.classOrInterface.Field;
-import com.example.main.CustomModifier;
+import com.example.main.Modifier;
 import com.example.visitor.Visitor;
 
 import java.util.LinkedList;
@@ -13,22 +13,22 @@ import java.util.List;
 
 public class ClassField extends Field {
 
-    public ClassField(List<CustomModifier> modifier, String name, String type) {
+    public ClassField(List<Modifier> modifier, String name, String type) {
 
         super(modifier, name, type);
     }
 
-    public ClassField(CustomModifier modifier, String name, String type) {
+    public ClassField(Modifier modifier, String name, String type) {
         super(modifier, name, type);
     }
 
-    public ClassField(List<CustomModifier> modifier, String name, String type, List<Parameter> parameters) {
+    public ClassField(List<Modifier> modifier, String name, String type, List<Parameter> parameters) {
 
         super(modifier, name, type);
         this.parameters = parameters;
     }
 
-    public ClassField(CustomModifier modifier, String name, String type, Parameter parameter) {
+    public ClassField(Modifier modifier, String name, String type, Parameter parameter) {
         super(modifier, name, type);
         this.parameters.add(parameter);
     }
