@@ -219,7 +219,23 @@ public class CheckScopes implements Visitor {
     }
 
     @Override
-    public void visit(Method method) {
+    public void visit(Method a) throws Exception {
+        NewVariableDeclaration type = stack.findOnStack(a.object.varname);
+        if (type == null)
+        {
+            throw new Exception("Variable " + a.object.varname + " not found");
+        }
+
+        String className = type.getVariableType().name;
+        if (!information.classExist(className))
+        {
+            throw new Exception("Class " + className + " not found");
+        }
+        if (information.methodType(className, a.method) == null)
+        {
+            throw new Exception("No method called " + a.method + " in " + className + " class");
+        }
+
 
     }
 

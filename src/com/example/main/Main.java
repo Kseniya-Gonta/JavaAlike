@@ -4,6 +4,8 @@ package com.example.main;
 import com.example.customClass.*;
 import com.example.customClass.Class;
 import com.example.expression.IntLiteral;
+import com.example.expression.Method;
+import com.example.expression.NewExpr;
 import com.example.expression.Variable;
 import com.example.program.Program;
 import com.example.statement.*;
@@ -43,11 +45,28 @@ public class Main {
         Class fourth = new Class(Modifier.PUBLIC, "B", "");
         third.addField(new ClassField(Modifier.PUBLIC, "a", new Class(Modifier.PUBLIC, "A", "")));
 
+
+        Class fifth = new Class(Modifier.PUBLIC, "Z", "");
+        fifth.addField((new ClassField(Modifier.PUBLIC, "x", new Class(Modifier.PUBLIC, "Int", ""))));
+        fifth.addMethod(new ClassMethod(Modifier.PUBLIC, "foo", new Class(Modifier.PUBLIC, "Int", "")));
+        a.methods.get(0).addMethodBody(new VariableStatement("m", new NewExpr("Z"), new Class(Modifier.PUBLIC, "Z", "")));
+        a.methods.get(0).addMethodBody(new ReturnStatement(new Method(new Variable("m"), "x")));
+
+        /*class Z {
+            (Method(new Variable("m"), "x"))
+            public Int x;
+            void foo() {
+                var m = new Z();
+                return m.x;
+            }
+        }*/
+
         Program newprogram = new Program();
         newprogram.addClass(a);
         newprogram.addClass(second);
         newprogram.addClass(third);
         newprogram.addClass(fourth);
+        newprogram.addClass(fifth);
         newprogram.checkCorrectness();
 
     }

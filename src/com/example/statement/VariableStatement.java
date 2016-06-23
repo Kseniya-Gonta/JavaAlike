@@ -29,3 +29,4 @@ public class VariableStatement implements Statement, NewVariableDeclaration {
     public Expr expression;
     public void visit(Visitor visitor) throws Exception { visitor.visit(this); }
 }
+
