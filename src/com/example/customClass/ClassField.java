@@ -2,6 +2,7 @@ package com.example.customClass;
 
 import com.example.classOrInterface.Field;
 import com.example.main.Modifier;
+import com.example.statement.NewVariableDeclaration;
 import com.example.visitor.Visitor;
 
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by ksenya on 18.06.16.
  */
 
-public class ClassField extends Field {
+public class ClassField extends Field implements NewVariableDeclaration{
 
     public ClassField(List<Modifier> modifier, String name, Class type) {
 
@@ -26,6 +27,14 @@ public class ClassField extends Field {
 
     public Class getType() {
 
+        return type;
+    }
+
+    public String getVariableId() {
+        return name;
+    }
+
+    public Class getVariableType() {
         return type;
     }
 

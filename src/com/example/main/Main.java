@@ -49,7 +49,7 @@ public class Main {
         fifth.addField((new ClassField(Modifier.PUBLIC, "x", new Class(Modifier.PUBLIC, "Int", ""))));
         fifth.addMethod(new ClassMethod(Modifier.PUBLIC, "foo", new Class(Modifier.PUBLIC, "Int", "")));
         a.methods.get(0).addMethodBody(new VariableStatement("m", new NewExpr("Z"), new Class(Modifier.PUBLIC, "Z", "")));
-        a.methods.get(0).addMethodBody(new ReturnStatement(new Method(new Variable("m"), "x")));
+        a.methods.get(0).addMethodBody(new ReturnStatement(new ExecuteMethod(new Variable("m"), "x")));
 
         /*class Z {
             (Method(new Variable("m"), "x"))

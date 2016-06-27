@@ -2,7 +2,6 @@ package com.example.statement;
 
 import com.example.customClass.Class;
 import com.example.expression.Expr;
-import com.example.main.CustomCollection;
 import com.example.visitor.Visitor;
 
 /**

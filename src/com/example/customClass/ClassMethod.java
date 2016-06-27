@@ -2,6 +2,7 @@ package com.example.customClass;
 
 import com.example.classOrInterface.Method;
 import com.example.main.Modifier;
+import com.example.statement.NewVariableDeclaration;
 import com.example.visitor.Visitor;
 import com.example.statement.BlockStatement;
 import com.example.statement.Statement;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by ksenya on 18.06.16.
  */
-public class ClassMethod extends Method {
+public class ClassMethod extends Method implements NewVariableDeclaration {
     public ClassMethod(List<Modifier> modifier, String name, Class type) {
 
         super(modifier, name, type);
@@ -61,10 +62,20 @@ public class ClassMethod extends Method {
         return modifier;
     }
 
-    public List<Parameter> getParameterss()
+    public List<Parameter> getParameters()
     {
         return parameters;
     }
+
+
+    public String getVariableId() {
+        return name;
+    }
+
+    public Class getVariableType() {
+        return type;
+    }
+
 
 
     private List<Parameter> parameters = new LinkedList<>();

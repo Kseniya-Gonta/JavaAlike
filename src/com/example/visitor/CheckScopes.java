@@ -3,6 +3,7 @@ package com.example.visitor;
 import com.example.customClass.Class;
 import com.example.customClass.ClassField;
 import com.example.customClass.ClassMethod;
+import com.example.customClass.Parameter;
 import com.example.customInterface.Interface;
 import com.example.customInterface.InterfaceField;
 import com.example.expression.*;
@@ -54,13 +55,12 @@ public class CheckScopes implements Visitor {
 
     @Override
     public void visit(ClassField a) throws Exception{
-        if (!Objects.equals(a.getType().name, "Int"))
-        {
-            if (!information.classExist(a.getType().name))
-            {
+        if (!Objects.equals(a.getType().name, "Int")) {
+            if (!information.classExist(a.getType().name)) {
                 throw new Exception("Type " + a.getType().name + " not found");
             }
         }
+        stack.peekLast().put(a.name, a);
     }
 
     @Override
@@ -83,7 +83,17 @@ public class CheckScopes implements Visitor {
                 throw new Exception("Type " + a.getType().name + " not found");
             }
         }
+        stack.peekLast().put(a.name, a);
+        HashMap<String, NewVariableDeclaration> map = new HashMap<>();
+
+        for (Parameter parameter: a.getParameters()) {
+            map.put(parameter.getVariableId(), parameter);
+        }
+        stack.addLevel(map);
+
         a.getMethodBody().visit(this);
+
+        stack.removeLevel();
     }
 
     public void visit(BlockStatement a) throws Exception {
@@ -149,7 +159,7 @@ public class CheckScopes implements Visitor {
 
     public void visit(ExecuteMethod a) throws Exception {
 
-        NewVariableDeclaration type = stack.findOnStack(a.object.varname);
+        /*NewVariableDeclaration type = stack.findOnStack(a.object.varname);
         if (type == null)
         {
             if (!information.classExist(a.object.varname))
@@ -164,7 +174,7 @@ public class CheckScopes implements Visitor {
         if (information.methodType(type.getVariableType().name, a.method.name) == null)
         {
             throw new Exception("No method called " + a.method.name + " in " + type.getVariableType().name + " class");
-        }
+        }*/
     }
 
     public void visit(ThrowStatement a) throws Exception {
