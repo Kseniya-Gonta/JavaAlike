@@ -4,7 +4,7 @@ package com.example.customClass;
  * Created by ksenya on 20.06.16.
  */
 public class Parameter {
-    Parameter(String parameterType, String parameterName)
+    Parameter(Class parameterType, String parameterName)
     {
         this.parameterName = parameterName;
         this.parameterType = parameterType;
@@ -15,10 +15,10 @@ public class Parameter {
         return parameterName;
     }
 
-    public String getParameterType()
+    public Class getParameterType()
     {
         return parameterType;
     }
-    private String parameterType;
+    private Class parameterType;
     private String parameterName;
 }

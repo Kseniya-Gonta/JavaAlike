@@ -6,6 +6,7 @@ import com.example.visitor.Visitor;
 import com.example.statement.BlockStatement;
 import com.example.statement.Statement;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -21,6 +22,20 @@ public class ClassMethod extends Method {
 
         super(modifier, name, type);
     }
+
+    public ClassMethod(List<Modifier> modifier, String name, Class type, List<Parameter> parameters) {
+
+        super(modifier, name, type);
+        this.parameters = parameters;
+    }
+
+    public ClassMethod(Modifier modifier, String name, Class type, Parameter parameter) {
+        super(modifier, name, type);
+        this.parameters.add(parameter);
+    }
+
+
+
 
     public BlockStatement getMethodBody() {
 
@@ -46,6 +61,13 @@ public class ClassMethod extends Method {
         return modifier;
     }
 
+    public List<Parameter> getParameterss()
+    {
+        return parameters;
+    }
+
+
+    private List<Parameter> parameters = new LinkedList<>();
     private BlockStatement methodBody = new BlockStatement();
     public void visit(Visitor visitor) throws Exception { visitor.visit(this); }
 }

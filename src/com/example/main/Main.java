@@ -4,7 +4,6 @@ package com.example.main;
 import com.example.customClass.*;
 import com.example.customClass.Class;
 import com.example.expression.IntLiteral;
-import com.example.expression.Method;
 import com.example.expression.NewExpr;
 import com.example.expression.Variable;
 import com.example.program.Program;

@@ -22,22 +22,12 @@ public class ClassField extends Field {
         super(modifier, name, type);
     }
 
-    public ClassField(List<Modifier> modifier, String name, Class type, List<Parameter> parameters) {
 
-        super(modifier, name, type);
-        this.parameters = parameters;
-    }
-
-    public ClassField(Modifier modifier, String name, Class type, Parameter parameter) {
-        super(modifier, name, type);
-        this.parameters.add(parameter);
-    }
 
     public Class getType() {
 
         return type;
     }
 
-    private List<Parameter> parameters = new LinkedList<>();
     public void visit(Visitor visitor) throws Exception { visitor.visit(this); }
 }

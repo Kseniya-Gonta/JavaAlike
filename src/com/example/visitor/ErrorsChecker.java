@@ -137,10 +137,6 @@ public class ErrorsChecker implements Visitor {
 
     }
 
-    @Override
-    public void visit(Method method) {
-
-    }
 
     @Override
     public void visit(ClassField a) throws Exception {

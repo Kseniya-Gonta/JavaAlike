@@ -1,6 +1,7 @@
 package com.example.statement;
 
 import com.example.customClass.Class;
+import com.example.expression.Expr;
 import com.example.main.CustomCollection;
 import com.example.visitor.Visitor;
 
@@ -9,7 +10,7 @@ import com.example.visitor.Visitor;
  */
 public class ForControlStatement implements Statement, NewVariableDeclaration {
 
-    public ForControlStatement(Class type, String variable, CustomCollection Elements)
+    public ForControlStatement(Class type, String variable, Expr Elements)
     {
         this.variableType = type;
         this.variableId = variable;
@@ -26,7 +27,7 @@ public class ForControlStatement implements Statement, NewVariableDeclaration {
         return variableId;
     }
 
-    public CustomCollection getElements()
+    public Expr getElements()
     {
         return Elements;
     }
@@ -35,6 +36,6 @@ public class ForControlStatement implements Statement, NewVariableDeclaration {
 
     private Class variableType;
     private String variableId;
-    private CustomCollection Elements;
+    private Expr Elements;
     public void visit(Visitor visitor) throws Exception { visitor.visit(this); }
 }

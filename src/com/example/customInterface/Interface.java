@@ -29,6 +29,6 @@ public class Interface extends ClassOrInterface {
         return fields;
     }
     public List<InterfaceField> fields;
-    public List<InterfaceMethod> metods;
+    public List<InterfaceMethod> methods;
 }
 

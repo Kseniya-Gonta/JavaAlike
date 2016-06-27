@@ -4,6 +4,9 @@ import com.example.classOrInterface.ClassOrInterface;
 import com.example.customClass.Class;
 import com.example.customClass.ClassField;
 import com.example.customClass.ClassMethod;
+import com.example.customInterface.Interface;
+import com.example.customInterface.InterfaceField;
+import com.example.customInterface.InterfaceMethod;
 import com.example.main.Information;
 import com.example.visitor.CheckScopes;
 import com.example.visitor.Visitor;
@@ -24,6 +27,20 @@ public class Program {
             map.put(new Pair(method.name, Member.METHOD), method.type);
         }
         information.addInformation(newClass.name, map);
+    }
+
+    public void addInterface(Interface newInterface)
+    {
+        program.add(newInterface);
+
+        HashMap<Pair<String, Member>, Class> map = new HashMap<>();
+        for(InterfaceField field: newInterface.fields) {
+            map.put(new Pair(field.name, Member.FIELD), field.type);
+        }
+        for(InterfaceMethod method: newInterface.methods) {
+            map.put(new Pair(method.name, Member.METHOD), method.type);
+        }
+        information.addInformation(newInterface.name, map);
     }
 
 

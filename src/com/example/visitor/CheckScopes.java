@@ -125,11 +125,7 @@ public class CheckScopes implements Visitor {
     }
 
     public void visit(ForControlStatement a) throws Exception {
-        NewVariableDeclaration type = stack.findOnStack(a.getElements().name);
-        if (Objects.equals(type, null))
-        {
-            throw new Exception("Variable " + a.getElements().name + " not found");
-        }
+        a.getElements().visit(this);
         HashMap<String, NewVariableDeclaration> map = new HashMap<>();
         map.put(a.getVariableId(), a);
         stack.addLevel(map);
@@ -164,6 +160,10 @@ public class CheckScopes implements Visitor {
             {
                 throw new Exception("No method called " + a.method.name + " in " +a.object.varname + " class");
             }
+        }
+        if (information.methodType(type.getVariableType().name, a.method.name) == null)
+        {
+            throw new Exception("No method called " + a.method.name + " in " + type.getVariableType().name + " class");
         }
     }
 
@@ -217,28 +217,6 @@ public class CheckScopes implements Visitor {
         }
 
     }
-
-    @Override
-    public void visit(Method a) throws Exception {
-        NewVariableDeclaration type = stack.findOnStack(a.object.varname);
-        if (type == null)
-        {
-            throw new Exception("Variable " + a.object.varname + " not found");
-        }
-
-        String className = type.getVariableType().name;
-        if (!information.classExist(className))
-        {
-            throw new Exception("Class " + className + " not found");
-        }
-        if (information.methodType(className, a.method) == null)
-        {
-            throw new Exception("No method called " + a.method + " in " + className + " class");
-        }
-
-
-    }
-
 
 
     public void visit(GetField a) {}

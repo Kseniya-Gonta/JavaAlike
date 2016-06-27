@@ -41,7 +41,6 @@ public interface Visitor {
     public void visit(IntLiteral a);
     public void visit(Variable a) throws Exception;
 
-    void visit(Method method) throws Exception;
 
     void visit(ClassField a) throws Exception;
 
